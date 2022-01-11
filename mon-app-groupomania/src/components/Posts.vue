@@ -17,6 +17,11 @@
 import axios from 'axios'
 export default {
     name: 'Posts',
+    props: {
+    post: {
+      type: Object,
+    },
+  },
     data(){
         return {
             posts: [],

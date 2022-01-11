@@ -46,12 +46,16 @@
 
 <script>
 import axios from 'axios';
+import Editor from '@tinymce/tinymce-vue'
 export default {
-    name: 'NewPost', 
-    data: () => {
+    name: 'NewPost',
+    components: {
+      editor: Editor
+    },
+    data(){
         return{
-           legend: "", // Corps du post
-            image: "", // Gif du post
+            visible: false,
+            content: '',
         }
     },
     methods: {

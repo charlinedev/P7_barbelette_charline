@@ -20,6 +20,8 @@ app.use(helmet());
 app.use(cors());
 app.options('*', cors());
 
+app.use(express.json());
+
 //Routes
 app.use('/api/auth', userRoutes);
 app.use('/api/posts', postRoutes);

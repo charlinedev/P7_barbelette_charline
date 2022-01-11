@@ -42,8 +42,15 @@
 
 <script>
 import axios from 'axios';
+import Editor from '@tinymce/tinymce-vue';
+
 export default {
     name: 'OnePost',
+
+    components: {
+      editor: Editor
+    },
+
     data: () => {
         return{
             modifiedContent: '',

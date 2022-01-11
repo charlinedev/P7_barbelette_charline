@@ -20,7 +20,7 @@ export default {
     LoginForm,
     Posts,
     Header,
-    NewPost
+    NewPost,
   },
   data() {
     return{
