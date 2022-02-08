@@ -1,6 +1,6 @@
 <template>
   <div class="newPost">
-      <div class="newPost-create-btn" @click="visible = true">Ajouter un nouveau post</div>
+      <div class="newPost-create-btn" @click="visible = true">Ajoutes un nouveau post</div>
 
     <transition name="fade">
       <div class="overlay" v-if="visible">
@@ -90,8 +90,8 @@ export default {
     .newPost-create-btn{
         margin: 30px auto;
         padding: 20px;
-        border-radius: 30px;
-        background-color: rgb(255, 34, 34);
+        border-radius: 10px;
+        background-color: rgb(62, 77, 110);
         color: white;
         max-width: 750px;
         font-size: 1.5rem;
@@ -141,7 +141,7 @@ export default {
         margin-bottom: 30px;    
     }
     form label{
-        color: red;
+        color: rgb(62, 77, 110);
         font-weight: bold;
         font-size: 1.3rem;
         margin-bottom: 10px;

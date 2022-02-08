@@ -81,14 +81,40 @@ exports.login = (req, res, next) => {
         }
     );
 };
+
+
+//Account
+exports.profile = (req, res, next) => {
+    const buffer = Buffer.from(req.body.email);
+    const cryptedEmail = buffer.toString('base64');
+    const userID = res.locals.userID;
+    let userIDAsked = req.params.id;
+    let sqlGetUser;
+    if (userIDAsked === "yourProfile") {
+        userIDAsked = userID;
+    }
+    //Recherche de l'utilisateur dans la BDD
+    db.query('SELECT * FROM users WHERE users.id = ${req.params.id}`,
+    (error, results, field) => {
+        if (result.length == 0) {
+            return res.status(400).json({ message: "Aucun utilisateur ne correspond à votre requête" });
+        }
+        res.status(200).json(result);
+    });
+}
+
 // Delete User
 exports.deleteUser = (req, res, next) => {
-    db.query(`DELETE FROM users WHERE users.id = ${req.params.id}`, (error, result, field) => {
+    const buffer = Buffer.from(req.body.email);
+    const cryptedEmail = buffer.toString('base64');
+    //Recherche de l'utilisateur dans la BDD
+    db.query(`DELETE * FROM users WHERE users.id = ${req.params.id}`, 
+    (error, result, field) => {
         if (error) {
             return res.status(400).json({
                 error
             });
         }
-        return res.status(200).json(result);
-    });
+    }
+    );
 };

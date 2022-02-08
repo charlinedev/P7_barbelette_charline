@@ -1,5 +1,5 @@
 <template>
-    <div class="Profile">
+     <div class="Profile">
         <LoginForm v-if="!connected"/>
 
         <Header v-if="connected"/>
@@ -15,6 +15,7 @@ import LoginForm from '@/components/LoginForm.vue';
 import Header from '@/components/Header.vue';
 import UserProfile from '@/components/UserProfile.vue';
 import UserPosts from '@/components/UserPosts.vue';
+import axios from 'axios';
 export default {
     name: 'Profile',
     components: {
@@ -25,7 +26,8 @@ export default {
   },
   data() {
     return{
-      connected: true
+          user:"",
+          email:"",
     };
   },
    created(){

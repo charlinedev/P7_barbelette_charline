@@ -7,11 +7,10 @@
         </router-link>
 
         <nav>
-            <router-link to='/profile'>
-                <div>Mon compte</div>
-            </router-link>
+            <router-link :to="{ name: 'Profile', params: {id: 'yourProfile' } }">Mon profil</router-link>
             <div id="disconnect-btn" @click = disconnect()>Se déconnecter</div>
         </nav>
+        
     </div>
 </template>
 

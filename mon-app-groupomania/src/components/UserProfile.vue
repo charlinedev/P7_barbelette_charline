@@ -1,5 +1,5 @@
 <template>
-    <div class="UserProfile">
+    <div class="Profile">
         <div class="profile-info">
             <h2>Bonjour,</h2>
             <span>{{this.$user.nom}}</span> <span>{{this.$user.prenom}}</span>
@@ -35,6 +35,7 @@ export default {
 
 <style scoped>
     .profile-info{
+        color: red;
         margin: 50px auto;
         max-width: 800px;
         /* text-align: left; */
@@ -56,7 +57,3 @@ export default {
       cursor: pointer;
     }
 </style>
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security

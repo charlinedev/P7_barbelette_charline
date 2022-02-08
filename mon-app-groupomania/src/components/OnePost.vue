@@ -129,11 +129,11 @@ export default {
         max-width: 800px;
         text-align: left;
         box-shadow: 0px 0px 50px -7px rgba(0,0,0,0.1);
-        border-bottom: solid red 5px;
+        border-bottom: solid rgb(238, 109, 109) 5px;
     }
     .post-title {
         margin: 0;
-        color: red;
+        color: rgb(238, 109, 109);
         font-size: 2rem;
     }
     .post-content{
@@ -148,12 +148,12 @@ export default {
         max-width: 800px;
         text-align: left;
         box-shadow: 0px 0px 50px -7px rgba(0,0,0,0.1);
-        border-bottom: solid red 5px;
+        border-bottom: solid rgb(238, 109, 109) 5px;
     }
     #modify-title {
         margin: 0;
         margin-bottom: 20px;
-        color: red;
+        color: rgb(238, 109, 109);
         font-size: 2rem;
     }
     #modify-content{
@@ -177,7 +177,7 @@ export default {
         margin: 0px 20px 50px 20px;
     }
     .delete-btn{
-        background-color: red !important;
+        background-color: rgb(238, 109, 109) !important;
     }
     label{
         font-size: 0.8rem;
