@@ -2,27 +2,33 @@
     <div class="header">
         <router-link to='/'>
         <h1>
-            <img src="/assets/icon.png" alt="Groupomania logo">
+            <img src="/assets/icon-left-font.png" alt="Groupomania logo">
         </h1>
         </router-link>
 
         <nav>
-            <router-link :to="{ name: 'Profile', params: {id: 'yourProfile' } }">Mon profil</router-link>
-            <div id="disconnect-btn" @click = disconnect()>Se déconnecter</div>
+            <router-link to='/profile'>
+                <div>Mon compte</div>
+            </router-link>
+            <div id="disconnect-btn" @click = deleteUser()>Se déconnecter</div>
         </nav>
-        
-    </div>
+    </div> 
 </template>
 
 <script>
 export default {
-  name: 'Header',
+    name: 'Header',
 
-  methods: {
-    disconnect () {
-      localStorage.removeItem('user')
-      location.href = "/"
+    methods: {
+        profile() {
+          localStorage.dbGetUser('user');
+            location.href = "/";
+        },
+        deleteUser(){
+            localStorage.removeItem('user');
+            location.href = "/";
         }
+        
     }
 }
 </script>

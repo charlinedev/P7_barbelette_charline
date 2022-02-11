@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const auth = require('../middlewares/auth');
+const auth = require('../middlewares/auth'); // Crée un token d'identification
+const multer = require("../middlewares/multer-config"); // Permet d'envoyer un fichier dans la requête
 
 const userCtrl = require('../controllers/user');
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="Profile">
+    <div class="UserProfile">
         <div class="profile-info">
             <h2>Bonjour,</h2>
             <span>{{this.$user.nom}}</span> <span>{{this.$user.prenom}}</span>
@@ -16,6 +16,11 @@ import axios from 'axios';
 export default {
     name: 'UserProfile',
   methods: {
+    profile() {
+          localStorage.dbGetUser('user');
+            location.href = "/";
+        },
+    
     deleteUser(){
       const userId = this.$user.userId;
       axios.delete(`${this.$apiUrl}/auth/${userId}`,
@@ -35,7 +40,6 @@ export default {
 
 <style scoped>
     .profile-info{
-        color: red;
         margin: 50px auto;
         max-width: 800px;
         /* text-align: left; */
