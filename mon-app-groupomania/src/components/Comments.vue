@@ -103,7 +103,7 @@ export default {
         padding: 10px;
         font-size: 1.1rem;
         color: white;
-        background-color: rgb(43, 42, 42);
+        background-color: rgb(62, 77, 110);
         border: none;
         border-radius: 10px;
         transition-duration: 0.2s;
@@ -112,7 +112,7 @@ export default {
     }
     .comment{
         padding: 20px 20px 20px 30px;
-        border-left: 5px solid rgb(43, 42, 42);
+        border-left: 5px solid rgb(62, 77, 110);
         margin-top: 20px;
         box-shadow: 0px 0px 50px -7px rgba(0,0,0,0.1);
         text-align: left;

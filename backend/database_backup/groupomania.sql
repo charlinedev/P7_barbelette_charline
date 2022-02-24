@@ -61,7 +61,9 @@ CREATE TABLE `users` (
   `prenom` varchar(40) NOT NULL,
   `password` varchar(80) NOT NULL,
   `email` varchar(80) NOT NULL,
-  `admin` tinyint(2) NOT NULL DEFAULT 0
+  `admin` tinyint(2) NOT NULL DEFAULT 0,
+  'avatarUrl' VARCHAR(150) NOT NULL DEFAULT 'http://localhost:3000/images/avatarDefault.jpg',
+	'dateCreation' DATETIME NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

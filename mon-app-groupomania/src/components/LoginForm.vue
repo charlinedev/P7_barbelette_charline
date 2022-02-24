@@ -17,6 +17,7 @@
             
         </form>
     </div>
+    
 </template>
 
 <script>
@@ -26,6 +27,13 @@ export default {
     data() {
         return {
             message: "",
+    
+      input: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: ''
+      }
         };
     },
     methods: {
@@ -46,18 +54,15 @@ export default {
             .then(res => {
                 localStorage.setItem('user', JSON.stringify(res.data));
                 location.reload();
+
             })
-            .catch((error) => {
-                if (error.status === 404) {
-                    this.message = "Utilisateur inconnu.";
-                }
-                if (error.status === 401) {
-                    this.message = "Email ou mot de passe invalide.";
-                }
-                if (error.status === 500) {
-                    this.message = "Erreur serveur.";
-                }
-            });
+            .catch(error => {
+                if (error.error) {
+                        return (this.errorMessage = error.error.errors[0].message)
+                    }
+                        this.message = "Erreur adresse mail / mot de passe"
+                        console.log('Erreur adresse mail / mdp...')
+                });
         }
     }
 }
@@ -84,7 +89,7 @@ export default {
         flex-direction: column;
     }
     form label{
-        color: rgba(0, 0, 0, .5);
+        color: rgb(62, 77, 110);
         margin: 10px;
     }
     form input{
@@ -92,12 +97,13 @@ export default {
         padding: 10px;
         margin-bottom: 15px;
         text-align: center;
+        color: rgb(62, 77, 110);
     }
     #login-btn{
         padding: 10px;
         font-size: 1.1rem;
         color: white;
-        background-color: rgb(43, 42, 42);
+        background-color: rgb(62, 77, 110);
         border: none;
         border-radius: 10px;
         transition-duration: 0.2s;
@@ -112,7 +118,7 @@ export default {
     label{
         font-size: 0.8rem;
         font-weight: bold;
-        color: rgb(109, 109, 109);
+        color: rgb(62, 77, 110);
         text-align: left;
         border: 0;
         clip: rect(0 0 0 0);
@@ -123,5 +129,4 @@ export default {
         position: absolute;
         width: 1px;
     }
-    
 </style>

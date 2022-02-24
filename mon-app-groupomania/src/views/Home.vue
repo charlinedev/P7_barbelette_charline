@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <LoginForm v-if="!connected"/>
-
     <Header v-if="connected"/>
     <NewPost v-if="connected"/>
     <Posts v-if="connected"/>

@@ -169,7 +169,7 @@ export default {
         padding: 10px;
         font-size: 1.1rem;
         color: white;
-        background-color: rgb(43, 42, 42);
+        background-color: rgb(62, 77, 110);
         border: none;
         border-radius: 10px;
         transition-duration: 0.2s;

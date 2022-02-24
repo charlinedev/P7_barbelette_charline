@@ -58,16 +58,19 @@ export default {
                 .then(res => {
                     if(res.status === 201) {
                          location.href = '/';
-                    }
+                            alert("Vous êtes maintenant inscrit");        
+}
                 })
-                .catch((error) => {
-                    if (error.status === 401) {
-                        this.message = "Email non disponible.";
-                    }  
-                });
-            }
-            else if( password != passwordVerif){
-                this.message = "Vérifier le mot de passe";
+                .catch(error => {
+                    if (error.error) {
+                        return (this.errorMessage = error.error.errors[0].message)
+                    }
+                        this.message = "Problème adresse mail / mot de passe"
+                        console.log('Erreur adresse mail / mdp...')
+                    })
+            
+            }else {
+                this.errorMessage = 'Veuillez renseigner un email et un mot de passe'
             }
             
         }
@@ -96,7 +99,7 @@ export default {
         flex-direction: column;
     }
     form label{
-        color: rgba(0, 0, 0, .5);
+        color: rgb(62, 77, 110);
         margin: 10px;
     }
     .error-message{
@@ -112,7 +115,7 @@ export default {
         padding: 10px;
         font-size: 1.1rem;
         color: white;
-        background-color: rgb(43, 42, 42);
+        background-color: rgb(62, 77, 110);
         border: none;
         border-radius: 10px;
         transition-duration: 0.2s;
@@ -124,7 +127,7 @@ export default {
     label{
         font-size: 0.8rem;
         font-weight: bold;
-        color: rgb(109, 109, 109);
+        color: rgb(62, 77, 110);
         text-align: left;
         border: 0;
         clip: rect(0 0 0 0);

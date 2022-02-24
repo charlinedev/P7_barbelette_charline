@@ -14,7 +14,7 @@ exports.signup = (req, res, next) => {
                 //Si email deja utilisé
                 if (results.length > 0) {
                     res.status(401).json({
-                        message: 'Email non disponible.'
+                        //message: 'Email non disponible.'
                     });
                     //Si email disponible
                 } else {
@@ -29,7 +29,7 @@ exports.signup = (req, res, next) => {
                                 return res.status(400).json("erreur");
                             }
                             return res.status(201).json({
-                                message: 'Votre compte a bien été crée !'
+                                //message: 'Votre compte a bien été crée !'
                             });
                         }
                     );
@@ -106,14 +106,14 @@ exports.deleteUser = (req, res, next) => {
 exports.profile = (req, res, next) => {
     const buffer = Buffer.from(req.body.email);
     const cryptedEmail = buffer.toString('base64');
-    const userID = res.locals.userID;
+    const userID = res.locals.id;
     let userIDAsked = req.params.id;
     let dbGetUser;
     if (userIDAsked === "yourProfile") {
-        userIDAsked = userID;
+        userIDAsked = id;
     }
     //Recherche de l'utilisateur dans la BDD
-    dbGetUser = `SELECT email, firstName, lastName, pseudo, bio, avatarUrl, DATE_FORMAT(dateCreation, 'Inscrit depuis le %e %M %Y à %kh%i') AS dateCreation,
+    dbGetUser = `SELECT email, prenom, nom, avatarUrl, DATE_FORMAT(dateCreation, 'Inscrit depuis le %e %M %Y à %kh%i') AS dateCreation,
     COUNT(CASE WHEN userID = ? then 1 else null end) AS yourProfile FROM User WHERE userID = ?`;
     db.query(dbGetUser, [userID, userIDAsked], function (err, result) {
         if (err) {
@@ -131,8 +131,6 @@ exports.profile = (req, res, next) => {
 exports.modify = (req, res, next) => {
     const userID = res.locals.userID;
     const email = req.body.email;
-    const pseudo = req.body.pseudo;
-    const bio = req.body.bio;
     const password = req.body.password;
 
     let sqlFindUser;

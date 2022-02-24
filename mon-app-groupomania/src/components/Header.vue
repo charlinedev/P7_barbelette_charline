@@ -7,7 +7,7 @@
         </router-link>
 
         <nav>
-            <router-link to='/profile'>
+            <router-link to='/views/profile'>
                 <div>Mon compte</div>
             </router-link>
             <div id="disconnect-btn" @click = deleteUser()>Se déconnecter</div>
